@@ -75,3 +75,29 @@
     - run의 경우 일시 서비스를 의미한다.
         - 하지만 run의 경우, 실행시마다 새로운 컨테이너를 실행시키는 것으로 보인다.
     - docker-compose.yml에서 tty 옵션을 켜주도록 한다.
+- docker add hosts
+    - 특정 네트워크 하단에 설정을 하면 된다.
+    - docker-compose.yml
+        ```
+        #origin
+        networks:
+            - kafkanet
+
+        #new
+        networks:
+            kafkanet:
+                aliases:
+                - peter-zk001
+                - peter-kafka001
+        ```
+    - 결과
+        ```
+        wshid-MacBook-Pro:kafka_docker wshid$ docker-compose up
+        Recreating 3dd3658a806e_node1 ... done
+        Recreating 04cd7976ae5d_node2 ... done
+        Recreating a17c3c54f966_node3 ... done
+        Attaching to node2, node1, node3
+        ```
+        - Recreating 되어 제대로 먹는 것을 확인할 수 있다.
+        - 내부에서 **ping**이나 **ssh**로 노드 연결을 확인할 수 있었다.
+    
