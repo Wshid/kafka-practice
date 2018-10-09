@@ -17,7 +17,10 @@ services:
     #ports:
     #  - 9200:9200
     networks:
-      - kafkanet
+      kafkanet:
+        aliases:
+          - peter-zk001
+          - peter-kafka001
   node2:
     image: kafka-practice:1.0.0
     container_name: node2
@@ -34,7 +37,10 @@ services:
     volumes:
       - ~/Workspace/docker/kafka/kafka_docker/node2:/root/workspace
     networks:
-      - kafkanet
+      kafkanet:
+        aliases:
+          - peter-zk002
+          - peter-kafka002
       # https://docs.docker.com/compose/networking/#specify-custom-network
   node3:
     image: kafka-practice:1.0.0
@@ -51,8 +57,13 @@ services:
         hard: -1
     volumes:
       - ~/Workspace/docker/kafka/kafka_docker/node3:/root/workspace
+    # networks:
+    #   - kafkanet
     networks:
-      - kafkanet
+      kafkanet:
+        aliases:
+          - peter-zk003
+          - peter-kafka003
       # https://docs.docker.com/compose/networking/#specify-custom-network
     
   # https://docs.docker.com/engine/reference/commandline/volume_create/#related-commands
