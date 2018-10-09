@@ -1,0 +1,74 @@
+version: '3.1' # version 2, kibana가 localhost에수 구동되지 않음
+services:
+  node1:
+    image: kafka-practice:1.0.0
+    container_name: node1
+    hostname: node1 # netowrks, esnet에서 elasticsearch라는 이름으로 호출 가능
+    command: bash
+    tty: true
+    # environment:
+    #   - 
+    ulimits:
+      memlock:
+        soft: -1 #ulimits soft=-1
+        hard: -1
+    volumes:
+     - ~/Workspace/docker/kafka/kafka_docker/node1:/root/workspace
+    #ports:
+    #  - 9200:9200
+    networks:
+      kafkanet:
+        aliases:
+          - peter-zk001
+          - peter-kafka001
+  node2:
+    image: kafka-practice:1.0.0
+    container_name: node2
+    hostname: node2
+    command: bash
+    tty: true
+    # environment:
+    #   - 
+      # xpack deprecated
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ~/Workspace/docker/kafka/kafka_docker/node2:/root/workspace
+    networks:
+      kafkanet:
+        aliases:
+          - peter-zk002
+          - peter-kafka002
+      # https://docs.docker.com/compose/networking/#specify-custom-network
+  node3:
+    image: kafka-practice:1.0.0
+    container_name: node3
+    hostname: node3
+    command: bash
+    tty: true
+    # environment:
+    #   - 
+      # xpack deprecated
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ~/Workspace/docker/kafka/kafka_docker/node3:/root/workspace
+    # networks:
+    #   - kafkanet
+    networks:
+      kafkanet:
+        aliases:
+          - peter-zk003
+          - peter-kafka003
+      # https://docs.docker.com/compose/networking/#specify-custom-network
+    
+  # https://docs.docker.com/engine/reference/commandline/volume_create/#related-commands
+  # driver의 의미 : http://tech.cloudz-labs.io/posts/docker/volume/
+  # nfs, aws s3 등 다양한 드라이버 모듈이 존재할 수 있음
+
+networks:
+  kafkanet:
