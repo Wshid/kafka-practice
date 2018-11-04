@@ -349,37 +349,43 @@
             - 파티션의 리더에 요청을 보내는 역할
         - 키 값을 정하여, 해당 키를 가진 모든 메세지를 동일한 파티션으로 접송 가능
         - 키 값을 입력하지 않으면 파티션은 RR방식으로 파티션에 균등 분배
-    - 4.1 콘솔 프로듀서로 메세지 보내기
         - ```auto.create.topics.enable = true```
             - 메세지를 보낼 때, 해당 토픽이 없으면 자동 생성
-        - 토픽 생성 및 확인
-            ```
-            [root@node1 bin]# $KAFKA_HOME/bin/kafka-topics.sh --zookeeper peter-zk001:2181,peter-zk002:2181,peter-zk003:2181/peter-kafka --topic peter-topic --delete
+    - 토픽 생성 및 확인
+        ```
+        [root@node1 bin]# $KAFKA_HOME/bin/kafka-topics.sh --zookeeper peter-zk001:2181,peter-zk002:2181,peter-zk003:2181/peter-kafka --topic peter-topic --delete
 
-            $KAFKA_HOME/bin/kafka-topics.sh \
-            --zookeeper peter-zk001:2181,peter-zk002:2181,peter-zk003:2181/peter-kafka \
-            --topic peter-topic --partitions 1 --replication-factor 3 --create
+        $KAFKA_HOME/bin/kafka-topics.sh \
+        --zookeeper peter-zk001:2181,peter-zk002:2181,peter-zk003:2181/peter-kafka \
+        --topic peter-topic --partitions 1 --replication-factor 3 --create
 
-            [root@node1 bin]# $KAFKA_HOME/bin/kafka-topics.sh --zookeeper peter-zk001:2181,peter-zk002:2181,peter-zk003:2181/peter-kafka --topic peter-topic --describe
-            Topic:peter-topic       PartitionCount:1        ReplicationFactor:3     Configs:
-                    Topic: peter-topic      Partition: 0    Leader: 1       Replicas: 1,2,3 Isr: 1,2,3
-            ```
-            - 1이 리더이고, 2,3이 팔로워 인것을 확인할 수 있다.
-        - 토픽 메세지를 보낼 때 ```kafka-console-producer.sh```를 사용하면 된다.
-            - ```--broker-list``` : 브러커의 호스트명:포트번호 형식으로 입력한다.
-            ```
-            --broker-list peter-kafka001:9092,peter-kafka002:9092,peter-kafka003:9092
-            ```
-        - 메세지 보내기
-            ```
-            [root@node1 bin]# kafka-console-producer.sh --broker-list peter-kakfa001:9092,peter-kafka002:9092,peter-kafka003:9092 --topic peter-topic
-            > Hello World!
-            ```
-        - 메세지 받기 : ```kafka-console-consumer.sh```
-            ```
-            [root@node1 bin]# kafka-console-consumer.sh --bootstrap-server peter-kafka001:9092,peter-kafka002:9092,peter-kafka003:9092 --topic peter-topic --from-beginning
-            ```
-        
+        [root@node1 bin]# $KAFKA_HOME/bin/kafka-topics.sh --zookeeper peter-zk001:2181,peter-zk002:2181,peter-zk003:2181/peter-kafka --topic peter-topic --describe
+        Topic:peter-topic       PartitionCount:1        ReplicationFactor:3     Configs:
+                Topic: peter-topic      Partition: 0    Leader: 1       Replicas: 1,2,3 Isr: 1,2,3
+        ```
+        - 1이 리더이고, 2,3이 팔로워 인것을 확인할 수 있다.
+    - 토픽 메세지를 보낼 때 ```kafka-console-producer.sh```를 사용하면 된다.
+        - ```--broker-list``` : 브러커의 호스트명:포트번호 형식으로 입력한다.
+        ```
+        --broker-list peter-kafka001:9092,peter-kafka002:9092,peter-kafka003:9092
+        ```
+    - 메세지 보내기
+        ```
+        [root@node1 bin]# kafka-console-producer.sh --broker-list peter-kakfa001:9092,peter-kafka002:9092,peter-kafka003:9092 --topic peter-topic
+        > Hello World!
+        ```
+    - 메세지 받기 : ```kafka-console-consumer.sh```
+        ```
+        [root@node1 bin]# kafka-console-consumer.sh --bootstrap-server peter-kafka001:9092,peter-kafka002:9092,peter-kafka003:9092 --topic peter-topic --from-beginning
+        ```
+    - producer로 값을 보낼때, acks나 압축 옵션 등도 설정할 수 있다.
+- 4.2 자바와 파이썬을 이용한 프로듀서
+    - 코드 참조
+    - github에 [confluent-kafka-python](https://github.com/confluentinc/confluent-kafka-python), [kafka-python](https://github.com/dpkp/kafka-python) 두가지 라이브러리 존재
+        - 인기도는 **kafka-python**이 더 높다
+        - 성능상으로는 **confluent-kafka-python**이 4배 더 좋음
+            - [popit](http://www.popit.kr/kafka-python-client-성능-테스트)
+            - **librdkafka**(아파치 카프카 프로토콜의 C라이브러리)를 반드시 설치해야함
         
 
         
