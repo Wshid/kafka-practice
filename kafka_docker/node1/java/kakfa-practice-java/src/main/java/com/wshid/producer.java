@@ -4,21 +4,14 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import static com.wshid.Constants.*;
 
 import java.util.Properties;
 
 
 public class producer {
 
-    private static final String KAFKA_OPITOIN_BROKER = "bootstrap.servers";
-    private static final String KAFKA_OPTION_SERIALIZER = "key.serializer";
-    private static final String KAFKA_OPTION_VALUE_SERIALIZER = "value.serializer";
-    private static final String KAFKA_TOPIC_NAME = "peter-topic";
-    private static final String KAFKA_BOOTSTRAP_SERVER = "peter-kafka001:9092,peter-kafka002:9092,peter-kafka003:9092";
-    private static final String KAFKA_KEY_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";
-    private static final String KAFKA_VALUE_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";
 
-    private static final String KAFKA_MESSAGE = "Apache kafka is a distributed streaming platform";
 
 
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 /**
- * Project:  kakfa-practice-java
+ * Project:  kafka-practice-java
  * Author :  wshid
  * Date :  04/11/2018 11:30 AM
  */

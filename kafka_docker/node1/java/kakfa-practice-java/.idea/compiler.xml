@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="kakfa-practice-java" />
+        <module name="kafka-practice-java" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="kakfa-practice-java" target="1.7" />
+      <module name="kafka-practice-java" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
