@@ -1,9 +1,9 @@
-version: '3.1' # version 2, kibana가 localhost에수 구동되지 않음
+version: '3.1' 
 services:
   node1:
     image: kafka-practice:1.0.0
     container_name: node1
-    hostname: node1 # netowrks, esnet에서 elasticsearch라는 이름으로 호출 가능
+    hostname: node1 
     command: bash
     tty: true
     # environment:
@@ -14,8 +14,6 @@ services:
         hard: -1
     volumes:
      - ~/Workspace/docker/kafka/kafka_docker/node1:/root/workspace
-    #ports:
-    #  - 9200:9200
     networks:
       kafkanet:
         aliases:
@@ -50,7 +48,6 @@ services:
     tty: true
     # environment:
     #   - 
-      # xpack deprecated
     ulimits:
       memlock:
         soft: -1
