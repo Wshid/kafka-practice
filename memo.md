@@ -544,8 +544,79 @@
                 - 이후 브로커에 해당하는 노드를 강제 종료 시키면 에러가 발생한다
                     - replication factor가 부족하다는 에러 발생
 
+### 5장, Kafka Consumer
+---
+- 토픽의 메세지를 가져와서 소비하는 역할을 하는 어플리케이션
+- 특정 파티션을 관리하고 있는 파티션 리더에게 메세지를 가져오는 요청
+- 각 요청은 로그의 오프셋 명시, 그 위치로부터 메세지 수신
+- 이미 가져온 메세지를 다시 로드 가능하다
+    - RabbitMQ에서는 불가능한 기능
+- 5.1 Consumer 주요 옵션
+    - Old Consumer, New Consumer
+        - 주키퍼의 사용 유무에 따라 다르다.
+        - Old Consumer
+            - Consumer의 Offset을 Znode에 저장
+        - New Consumer
+            - Consumer의 Offset을 Kafka Topic에 저장
+        - 현재는 kafka topic 및 znode 방법 둘 다 지원하지만, znode 저장 방식은 사라질 예정
+    - New Consumer's Option
+        - bootstrap.server
+            - kafka cluster에 연결하려면 호스트와 포트정보 목록
+            - 호스트명:포트
+            - 호스트 하나만 설정도 가능하지만, 장애 발생시 접속이 불가하게 됨
+                - 비추천
+        - fetch.min.bytes
+            - 한번에 가져올 수 있는 최소 바이트 설정
+            - 지정한 사이즈보다 작을 경우, 요청에 응답하지 않고 누적될 때까지 기다림
+        - group.id
+            - consuer group 식별자
+        - enable.auto.commit
+            - bg로 주기적으로 offset commit
+        - auto.offset.reset
+            - 카프카 초기 오프셋이 없거나, 오프셋 미존재시(데이터 삭제 등) 리셋
+            - 리셋 옵션
+                - earliest : 가장 초기 오프셋값으로 설정
+                - latest : 가장 마지막 오프셋 설정
+                - none : 이전 오프셋값 찾지 못하면 에러
+        - fetch.max.bytes
+            - 한번에 가져올 수 있는 최대 데이터 사이즈
+        - request.timeout.ms
+            - 요청에 대해 응답을 기다리는 최대 시간
+        - session.timeout.ms
+            - Consumer와 Broker 사이 세션 타임 아웃 시간
+            - 브로커가 consumer가 살아있는 것으로 판단하는 시간
+                - deafult : 10s
+            - Consumer가 그룹 코디네이터에게 heartbeat를 보내지 않고
+                - session.timeout.ms가 지나면
+                    - 해당 consumer가 종료되거나 장애가 발생한 것으로 판단
+                        - rebalance를 시도
+            - heartbeat없이 얼마나 오랫동안 consumer가 있을 수 있는지 제어
+            - **heartbeat.interval.ms**와 밀접한 관련이 있음
+                - 일반적인 경우 heartbeat와 session.timout을 같이 수정함
+            - 기본값보다 낮게 설정
+                - 실패를 빨리 감지할 수 있음
+                - GC나 pool loop을 완료하는 시간이 길어짐
+                    - 원하지 않는 rebalace 발생 가능성 증가
+            - 기본값보다 높게 설정시,
+                - 원하지 않는 rebalance 발생 감소
+                - 실제 오류 감지시 오랜 시간 발생
+        - heartbeat.interval.ms
+            - 그룹 코디네이터에게 얼마나 자주 KafkaConsumer poll() 메소드로 heartbeat를 보낼것인지 조정
+            - **session.timeout.ms**과 연관이 있음
+            - 기본적으로 **session.timeout.ms**보다 수치가 낮아야 함
+            - 일반적으로 1/3 정도로 설정(default : 3s)
+        - max.poll.records
+            - 단일 호출 poll()에 대한 최대 레코드 수 조정
+            - application이 pool loop에서 데이터 양 조정 가능
+        - max.pool.interval.ms
+            - Consumer가 heartbeat만 보내고, 실제 메세지를 안 가져가는 경우가 있음
+            - consumer가 특정 partition을 점유할 수 없도록 주기적으로 poll을 호출하지 않으면
+                - 장애라고 판단하여 Consumer Group에서 제외한 후
+                    - 다른 컨슈머가 해당 파티션에서 메세지를 가져갈 수 있도록 함
+        - auto.commit.interval.ms
+            - 주기적으로 오프셋을 커밋하는 시간
+        - fetch.max.wait.ms
+            - fetch.min.bytes에 의해 설정된 데이터보다 적을 경우
+                - 응답을 기다리는 최대 시간
         
 
-        
-
-        
