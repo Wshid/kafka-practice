@@ -15,7 +15,7 @@ import static com.wshid.Constants.*;
 public class producer_option {
     public static void main(String args[]){
         Properties props = new Properties();
-        props.put(KAFKA_OPITOIN_BROKER, KAFKA_BOOTSTRAP_SERVER);
+        props.put(KAFKA_OPTION_BROKER, KAFKA_BOOTSTRAP_SERVER);
         props.put("acks", "1");
         props.put("compression.type", "gzip");
         props.put(KAFKA_OPTION_SERIALIZER, KAFKA_KEY_SERIALIZER);
