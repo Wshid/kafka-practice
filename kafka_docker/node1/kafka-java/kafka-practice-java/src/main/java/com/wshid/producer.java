@@ -18,7 +18,7 @@ public class producer {
 
 
         Properties props = new Properties();
-        props.put(KAFKA_OPITOIN_BROKER, KAFKA_BOOTSTRAP_SERVER); // 브로커 리스트 정의
+        props.put(KAFKA_OPTION_BROKER, KAFKA_BOOTSTRAP_SERVER); // 브로커 리스트 정의
         props.put(KAFKA_OPTION_SERIALIZER, KAFKA_KEY_SERIALIZER);
         props.put(KAFKA_OPTION_VALUE_SERIALIZER, KAFKA_VALUE_SERIALIZER);
 
