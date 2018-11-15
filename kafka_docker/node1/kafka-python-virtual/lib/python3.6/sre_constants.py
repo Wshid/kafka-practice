@@ -1,1 +1,1 @@
-/usr/lib64/python3.6/sre_constants.py
+/usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sre_constants.py

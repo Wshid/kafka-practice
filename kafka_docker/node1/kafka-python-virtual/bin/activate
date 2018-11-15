@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/root/workspace/kafka-python-virtual"
+VIRTUAL_ENV="/Users/wshid/Workspace/docker/kafka/kafka_docker/node1/kafka-python-virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
