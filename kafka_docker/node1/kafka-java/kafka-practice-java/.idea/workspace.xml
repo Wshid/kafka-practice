@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="639ed509-fbbc-4d53-b7e9-13e3cc5c5a53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/libraries/Maven__org_apache_kafka_kafka_clients_2_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/libraries/Maven__org_lz4_lz4_java_1_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kakfa-practice-java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/kafka-practice-java.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/src/main/java/com/wshid/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/src/main/java/com/wshid/PeterCallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/src/main/java/com/wshid/consumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/src/main/java/com/wshid/producer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/src/main/java/com/wshid/producer_option.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/classes/com/wshid/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/classes/com/wshid/PeterCallback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/classes/com/wshid/producer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/classes/com/wshid/producer_option.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/kakfa-practice-java-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kakfa-practice-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../memo.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../memo.md" afterDir="false" />
-    </list>
+    <list default="true" id="639ed509-fbbc-4d53-b7e9-13e3cc5c5a53" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,9 +90,10 @@
     <session id="1408382817">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -163,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wshid/consumer_partition.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -296,6 +267,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -333,8 +306,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,16 +374,17 @@
       <workItem from="1541948379360" duration="240000" />
       <workItem from="1541948666324" duration="787000" />
       <workItem from="1541949668973" duration="35000" />
+      <workItem from="1542274478941" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9536000" />
+    <option name="totallyTimeSpent" value="9554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23504274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23748474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -532,7 +504,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wshid/consumer_partition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
