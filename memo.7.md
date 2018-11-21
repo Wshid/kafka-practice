@@ -85,3 +85,22 @@
         ```
         - 내용을 잘 로드하는 것을 확인할 수 있다.
         - 하단에 Processed .. 문장을 보면, 10개의 메세지를 가져온다는 것을 확인할 수 있다.
+- 7.3 나이파이를 이용해 메세지 가져오기
+    - 카프카 peter-log 토픽으로 부터 메세지를 가져오기
+    - Consumer로 Nifi를 사용한다.
+    - 7.3.1 나이파이 설치
+        - [Apache Nifi Downloads](https://nifi.apache.org/download.html)
+        - 파일을 다운 받고 환경 변수로 설정한다.
+    - 7.3.2 나이파이 설정
+        - ```$NIFI_HOME/conf/nifi.properties```
+        ```
+        nifi.web.http.host=peter-kafka001 # 각 노드별 로컬 호스트 설정
+        nifi.cluster.is.node=true
+        nifi.cluster.node.address=peter-kafka001 # 각 노드별 로컬 호스트 설정
+        nifi.cluster.node.protocol.port=8082
+        nifi.zookeeper.connect.string=peter-zk001:2181,peter-zk002:2181,peter-zk003:2181
+        ```
+        - zookeeper host 정보 설정
+        - 클러스터 구성을 하기 위해, 동일하게 설정하여 준다.
+        - 포트번호를 열어도 제대로 설정이 되지 않는다.
+
